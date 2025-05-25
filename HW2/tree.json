@@ -1,0 +1,40 @@
+{
+  "name": "+",
+  "children": [
+    {
+      "name": "+",
+      "children": [
+        {
+          "name": ".",
+          "children": [
+            {
+              "name": "a"
+            },
+            {
+              "name": "A"
+            }
+          ]
+        },
+        {
+          "name": "b"
+        }
+      ]
+    },
+    {
+      "name": ".",
+      "children": [
+        {
+          "name": "0"
+        },
+        {
+          "name": "*",
+          "children": [
+            {
+              "name": "c"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

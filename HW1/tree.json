@@ -1,0 +1,109 @@
+{
+  "name": "+",
+  "children": [
+    {
+      "name": "+",
+      "children": [
+        {
+          "name": "+",
+          "children": [
+            {
+              "name": ".",
+              "children": [
+                {
+                  "name": "a"
+                },
+                {
+                  "name": "A"
+                }
+              ]
+            },
+            {
+              "name": "*",
+              "children": [
+                {
+                  "name": "+",
+                  "children": [
+                    {
+                      "name": ".",
+                      "children": [
+                        {
+                          "name": "a"
+                        },
+                        {
+                          "name": "A"
+                        }
+                      ]
+                    },
+                    {
+                      "name": ".",
+                      "children": [
+                        {
+                          "name": "b"
+                        },
+                        {
+                          "name": "c"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": ".",
+          "children": [
+            {
+              "name": "a"
+            },
+            {
+              "name": "c"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "*",
+      "children": [
+        {
+          "name": "+",
+          "children": [
+            {
+              "name": "+",
+              "children": [
+                {
+                  "name": "a"
+                },
+                {
+                  "name": ".",
+                  "children": [
+                    {
+                      "name": "C"
+                    },
+                    {
+                      "name": "a"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": ".",
+              "children": [
+                {
+                  "name": "b"
+                },
+                {
+                  "name": "C"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>정규표현 트리</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <style>
+    .node circle {
+      fill: #fff;
+      stroke: steelblue;
+      stroke-width: 3px;
+    }
+    .node text {
+      font: 14px sans-serif;
+    }
+    .link {
+      fill: none;
+      stroke: #ccc;
+      stroke-width: 2px;
+    }
+  </style>
+</head>
+<body>
+  <h2>정규 표현 트리 D3</h2>
+  <svg width="960" height="600"></svg>
+  <p id="regex-display" style="font-size: 18px; font-family: monospace; margin-top: 20px;"></p>
+
+  <script>
+    const width = 960;
+    const height = 600;
+    const re = "aA+(aA+bc)*+ac+(a+Ca+bC)*";
+
+    const svg = d3.select("svg"),
+          g = svg.append("g").attr("transform", "translate(40,40)");
+
+    d3.json("tree.json").then(function(data) {
+      const root = d3.hierarchy(data);
+      const treeLayout = d3.tree().size([width - 80, height - 100]); // 수직 방향
+
+      treeLayout(root);
+
+      // 링크
+      g.selectAll(".link")
+        .data(root.links())
+        .enter().append("path")
+          .attr("class", "link")
+          .attr("d", d3.linkVertical()
+            .x(d => d.x)
+            .y(d => d.y));
+
+      // 노드
+      const node = g.selectAll(".node")
+        .data(root.descendants())
+        .enter().append("g")
+          .attr("class", "node")
+          .attr("transform", d => `translate(${d.x},${d.y})`);
+
+      node.append("circle")
+        .attr("r", 20);
+
+      node.append("text")
+        .attr("dy", 5)
+        .attr("text-anchor", "middle")
+        .text(d => d.data.name);
+    });
+
+    // 정규 표현식 출력
+    document.getElementById("regex-display").textContent = "정규 표현식: " + re;
+  </script>
+</body>
+</html>
